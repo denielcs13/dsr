@@ -1,0 +1,21 @@
+.city-dropdown-menu {
+    border: thin solid #ff6c26;
+    border-radius: 0 0 8px 8px;
+}.city-list {
+    padding: 3px 12px;
+    border-bottom: thin solid #ff6c26;
+    font-size: 16px;
+    cursor: pointer;
+}.hover {
+    background: #ff6c26 !important;
+    color: #f6f6f6 !important;
+}
+#auto_sector_code,#auto_hotel_name,#auto_vehicle,#auto_vehicle1{
+	position: absolute;
+    z-index: 9;
+    background: #fff;
+    width: 20%;
+	margin-top: 25px;
+    margin-left: -90px;
+}
+.datepicker-orient-top{z-index:9999 !important}
