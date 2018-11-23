@@ -40,7 +40,7 @@
 	 if(isset($_POST["pick_query"])){
 $pick_query_id=$_POST["pick_query_id"];
 $pick_query_admin_id=$_POST["pick_query_admin_id"];
-$data_query="SELECT id,file_number,city FROM float_query where admin_id='$pick_query_admin_id'";
+$data_query="SELECT id,file_number,city,packages_city FROM float_query where admin_id='$pick_query_admin_id'";
 $data_query_file=$data_query." && file_number !='' order by id desc";
 $view_data = $con->query($data_query_file);
 $top_id=array();
@@ -51,7 +51,7 @@ while($view_data_val=$view_data->fetch_assoc()){
 $insert_id=(max($top_id)+1);
 $data_query1=$data_query." && id='".$pick_query_id."'";
 $view_data1 = $con->query($data_query1)->fetch_assoc();
-$file_number='DT'.strtoupper(substr($view_data1["city"],0,3)).'0000'.($insert_id);
+$file_number='DT'.strtoupper(substr($view_data1["packages_city"],0,3)).'0000'.($insert_id);
 $data_query3=$data_query." && file_number ='$file_number'";
 $view_data3 = $con->query($data_query3)->fetch_assoc(); 
 if(empty($view_data3)){

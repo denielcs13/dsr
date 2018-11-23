@@ -80,16 +80,37 @@ if(isset($_POST["insert_stucture"])){
 	<label for="username">Duration</label>
 	<select name="duration" id="duration" class="form-control"   required>
 	<option value="select">Select</option>
-		<option value="1"> 2 Days /1 Night</option>
-		<option value="2"> 3 Days /2 Night</option>
-		<option value="3"> 4 Days /3 Night</option>
-		<option value="4"> 5 Days /4 Night</option>
-		<option value="5"> 6 Days /5 Night</option>
-		<option value="6"> 7 Days /6 Night</option>
-		<option value="7"> 8 Days /7 Night</option>
-		<option value="8"> 9 Days /8 Night</option>
-		<option value="9"> 10 Days /9 Night</option>
-		<option value="10"> 11 Days /10 Night</option>
+		<option value="select">Select</option>
+										<option value="1"> 2 Days /1 Night</option>
+										<option value="2"> 3 Days /2 Night</option>
+										<option value="3"> 4 Days /3 Night</option>
+										<option value="4"> 5 Days /4 Night</option>
+										<option value="5"> 6 Days /5 Night</option>
+										<option value="6"> 7 Days /6 Night</option>
+										<option value="7"> 8 Days /7 Night</option>
+										<option value="8"> 9 Days /8 Night</option>
+										<option value="9"> 10 Days /9 Night</option>
+										<option value="10"> 11 Days /10 Night</option>
+										<option value="10"> 12 Days /11 Night</option>
+										<option value="10"> 13 Days /12 Night</option>
+										<option value="10"> 14 Days /13 Night</option>
+										<option value="10"> 15 Days /14 Night</option>
+										<option value="10"> 16 Days /15 Night</option>
+										<option value="10"> 17 Days /16 Night</option>
+										<option value="10"> 18 Days /17 Night</option>
+										<option value="10"> 19 Days /18 Night</option>
+										<option value="10"> 20 Days /19 Night</option>
+										<option value="10"> 21 Days /20 Night</option>
+										<option value="10"> 22 Days /21 Night</option>
+										<option value="10"> 23 Days /22 Night</option>
+										<option value="10"> 24 Days /23 Night</option>
+										<option value="10"> 25 Days /24 Night</option>
+										<option value="10"> 26 Days /25 Night</option>
+										<option value="10"> 27 Days /26 Night</option>
+										<option value="10"> 28 Days /27 Night</option>
+										<option value="10"> 29 Days /28 Night</option>
+										<option value="10"> 30 Days /29 Night</option>
+										<option value="10"> 31 Days /30 Night</option>
 		</select>
 				</div> 
 			</div>

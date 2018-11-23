@@ -45,7 +45,7 @@
  </thead>';
  
 while($data_list=$result_dsr->fetch_assoc()){
- echo '<tr><td>'.$data_list["day"].'</td><td>'.date('d-m-Y',strtotime($data_list["date"])).'</td><td>'.$data_list["sector_code"].'</td><td>'.$data_list["hotel_name"].'</td><td>'.$data_list["meal_plan"].'</td><td>'.$data_list["no_rooms"].'</td><td>'.$data_list["dbl_rate"].'</td><td>'.$data_list["ext_bed_rate"].'"/></td><td>'.$data_list["cwb_rate"].'</td><td>'.$data_list["cnb_rate"].'</td><td>'.$data_list["vehicle1"].'</td><td>'.$data_list["vehicle1_no"].'</td><td>'.$data_list["vehicle1_rate"].'</td><td>'.$data_list["vehicle2"].'</td><td>'.$data_list["vehicle2_no"].'</td><td>'.$data_list["vehicle2_rate"].'</td></tr>';
+ echo '<tr><td>'.$data_list["day"].'</td><td>'.date('d-m-Y',strtotime($data_list["date"])).'</td><td>'.$data_list["sector_code"].'</td><td>'.$data_list["hotel_name"].'</td><td>'.$data_list["meal_plan"].'</td><td>'.$data_list["no_rooms"].'</td><td>'.$data_list["dbl_rate"].'</td><td>'.$data_list["ext_bed_rate"].'</td><td>'.$data_list["cwb_rate"].'</td><td>'.$data_list["cnb_rate"].'</td><td>'.$data_list["vehicle1"].'</td><td>'.$data_list["vehicle1_no"].'</td><td>'.$data_list["vehicle1_rate"].'</td><td>'.$data_list["vehicle2"].'</td><td>'.$data_list["vehicle2_no"].'</td><td>'.$data_list["vehicle2_rate"].'</td></tr>';
  }
 echo '</table>';
 		}else{

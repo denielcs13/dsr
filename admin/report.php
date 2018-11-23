@@ -62,7 +62,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 
  if(isset($_POST["submit_dsr"])){
 
-	 $insert="insert into online_dsr_rest(no_dbl,no_ext,no_cwb,no_cnb,cpp_dbl,cpp_ext,	cpp_cnb,cpp_cwb,vehicle_pax,cpp_dbl_gst,cpp_ext_gst,cpp_cnb_gst,cpp_cwb_gst,cpp_dbl_gt,	cpp_ext_gt,cpp_cnb_gt,cpp_cwb_gt,grand_total,online_dsr_status,	file_id,query_id,admin_id) values ('".$_POST["no_dbl"]."','".$_POST["no_ext_bed"]."','".$_POST["no_cwb"]."','".$_POST["no_cnb"]."','".$_POST["pp_cost"]."','".$_POST["epsr_cost"]."','".$_POST["cnb_cost"]."','".$_POST["cwb_cost"]."','".$_POST["veh_pax"]."','".$_POST["pp_gst"]."','".$_POST["epsr_gst"]."','".$_POST["cnb_gst"]."','".$_POST["cwb_gst"]."','".$_POST["pp_gt"]."','".$_POST["epsr_gt"]."','".$_POST["cnb_gt"]."','".$_POST["cwb_gt"]."','".$_POST["total_cost"]."','1','".$_POST["file_id"]."','".$_POST["query_id"]."','".$_POST["admin_id"]."')";
+	 $insert="insert into online_dsr_rest(no_dbl,no_ext,no_cwb,no_cnb,cpp_dbl,cpp_ext,cpp_cnb,cpp_cwb,vehicle_pax,cpp_dbl_gst,cpp_ext_gst,cpp_cnb_gst,cpp_cwb_gst,cpp_dbl_gt,cpp_ext_gt,cpp_cnb_gt,cpp_cwb_gt,grand_total,online_dsr_status,file_id,query_id,admin_id) values ('".$_POST["no_dbl"]."','".$_POST["no_ext_bed"]."','".$_POST["no_cwb"]."','".$_POST["no_cnb"]."','".$_POST["pp_cost"]."','".$_POST["epsr_cost"]."','".$_POST["cnb_cost"]."','".$_POST["cwb_cost"]."','".$_POST["veh_pax"]."','".$_POST["pp_gst"]."','".$_POST["epsr_gst"]."','".$_POST["cnb_gst"]."','".$_POST["cwb_gst"]."','".$_POST["pp_gt"]."','".$_POST["epsr_gt"]."','".$_POST["cnb_gt"]."','".$_POST["cwb_gt"]."','".$_POST["total_cost"]."','1','".$_POST["file_id"]."','".$_POST["query_id"]."','".$_POST["admin_id"]."')";
 
 	 $ins=mysqli_query($con,$insert);
 
@@ -108,7 +108,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 
 		$result1=$con->query("select `id`,sec_code,sec_name,itinerary,itinerary_desc from sector_code where id='".$sector_code_id[$i]."'")->fetch_assoc();
 
-		$insert_dsr="insert into online_dsr(online_dsr_id,day,date,sector_code_id,sector_code,sector_code_name,itinerary,itinerary_desc,hotel_name,meal_plan,no_rooms,dbl_rate,ext_bed_rate,cwb_rate,cnb_rate,vehicle1,vehicle1_no,vehicle1_rate,vehicle2,vehicle2_no,vehicle2_rate,	file_no,admin_id1,query_id1,dsr_status) values ('".$dsr_id."','".($i+1)."','".date("Y-m-d",strtotime($date[$i]))."','".$sector_code_id[$i]."','".$sector_code[$i]."','".mysqli_real_escape_string($con,$result1["sec_name"])."','".mysqli_real_escape_string($con,$result1["itinerary"])."','".mysqli_real_escape_string($con,$result1["itinerary_desc"])."','".mysqli_real_escape_string($con,$hotel_name[$i])."','".mysqli_real_escape_string($con,$mealplan[$i])."','".$no_rooms[$i]."','".$dbl_rate[$i]."','".$ext_bed[$i]."','".$cwb[$i]."','".$cnb[$i]."','".mysqli_real_escape_string($con,$vehicle[$i])."','".$no_vehicle[$i]."','".$Vehicle_rate[$i]."','".mysqli_real_escape_string($con,$vehicle1[$i])."','".$no_vehicle1[$i]."','".$vehicle_rate1[$i]."','".$_POST["file_id"]."','".$_POST["admin_id"]."','".$_POST["query_id"]."','1')";
+		$insert_dsr="insert into online_dsr(online_dsr_id,day,date,sector_code_id,sector_code,sector_code_name,itinerary,itinerary_desc,hotel_name,meal_plan,no_rooms,dbl_rate,ext_bed_rate,cwb_rate,cnb_rate,vehicle1,vehicle1_no,vehicle1_rate,vehicle2,vehicle2_no,vehicle2_rate,file_no,admin_id1,query_id1,dsr_status) values ('".$dsr_id."','".($i+1)."','".date("Y-m-d",strtotime($date[$i]))."','".$sector_code_id[$i]."','".$sector_code[$i]."','".mysqli_real_escape_string($con,$result1["sec_name"])."','".mysqli_real_escape_string($con,$result1["itinerary"])."','".mysqli_real_escape_string($con,$result1["itinerary_desc"])."','".mysqli_real_escape_string($con,$hotel_name[$i])."','".mysqli_real_escape_string($con,$mealplan[$i])."','".$no_rooms[$i]."','".$dbl_rate[$i]."','".$ext_bed[$i]."','".$cwb[$i]."','".$cnb[$i]."','".mysqli_real_escape_string($con,$vehicle[$i])."','".$no_vehicle[$i]."','".$Vehicle_rate[$i]."','".mysqli_real_escape_string($con,$vehicle1[$i])."','".$no_vehicle1[$i]."','".$vehicle_rate1[$i]."','".$_POST["file_id"]."','".$_POST["admin_id"]."','".$_POST["query_id"]."','1')";
 
 		$ins_dsr=mysqli_query($con,$insert_dsr);		
 
@@ -121,6 +121,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 		$inclusion_qty=$_POST["inclusion_qty"];
 
 		$inclusion_rate=$_POST["inclusion_rate"];
+                $cnt_loader="";
 
 		for($i=0;$i<count($inclusion);$i++){
 
@@ -131,7 +132,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 
 				$inclu_desc=$con->query("select `id`,`inclusion_title`,`inclusion_desc`,`inc_rate`,`admin_id` from inclusion where admin_id='".$admin_id."' && id='".$inclusion[$i]."'")->fetch_assoc();
 
-				$insert_inclusions="insert into online_dsr_inclusion(dsr1_id,file_id2,query_id2,admin_id2,	dsr_status2,inclusion_id,inclusion,inclusion_qty,inclusion_rate,inclusion_desc)
+				$insert_inclusions="insert into online_dsr_inclusion(dsr1_id,file_id2,query_id2,admin_id2,dsr_status2,inclusion_id,inclusion,inclusion_qty,inclusion_rate,inclusion_desc)
 				 values ('".$dsr_id."','".$_POST["file_id"]."','".$_POST["query_id"]."','".$_POST["admin_id"]."','".$cnt_loader."','".$inclusion[$i]."','".mysqli_real_escape_string($con,$inclu_desc["inclusion_title"])."','".$inclusion_qty[$i]."','".$inclusion_rate[$i]."','".mysqli_real_escape_string($con,$inclu_desc["inclusion_desc"])."')";
 
 				$ins_includes=mysqli_query($con,$insert_inclusions);			
@@ -142,7 +143,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 
 		echo '<div class="col-md-12"><div class="alert alert-success">Record Is  Added Successfully </div></div>';
 
-		echo '<srript>window.location="online-loader.php?admin='.$_GET["admin"].'&query='.$_GET["query"].'&file='.$_GET["file"].'";</script>';
+		echo '<script>window.location="online-loader.php?admin='.$_GET["admin"].'&query='.$_GET["query"].'&file='.$_GET["file"].'";</script>';
 
 	 }else{
 
@@ -190,7 +191,7 @@ Company Name: <input type="search" name="company" class="form-control" /></div><
 
  echo '<tr><td>'.$i.'</td><td><input type="text" name="date[]" id="start_date"  /></td><td><input type="text" name="sector_code[]" id="sector_code" />
 
- <input type="hidden" class="form-control" name="sector_code_id[]" id="sector_code_id"/><span id="auto_sector_code"></span>
+ <input type="hidden" class="form-control" name="sector_code_id[]" id="sector_code_id"/><span id="auto_sector_code" style="margin-top: 0px;"></span>
 
  </td><td><input type="text" name="hotel_name[]" id="hotel_name" /><input type="hidden" name="hotel_name_id[]" id="hotel_name_id"/><span id="auto_hotel_name"></span></td><td><input type="text" name="mealplan[]" /></td><td><input type="number" name="no_rooms[]" class="inp" /></td><td><input type="number" name="dbl_rate[]" class="inp" /></td><td><input type="number" name="ext_bed[]" class="inp"/></td><td><input type="number" name="cwb[]" class="inp" /></td><td><input type="number" name="cnb[]" class="inp" /></td><td><input type="text" name="vehicle[]" id="vehicle" /><span id="auto_vehicle"></span></td><td><input type="number" name="no_vehicle[]"  class="inp"/></td><td><input type="number" name="Vehicle_rate[]" class="inp" /></td><td><input type="text" name="vehicle1[]" id="vehicle1" /><span id="auto_vehicle1"></span></td><td><input type="number" name="no_vehicle1[]" class="inp" /></td><td><input type="number" name="vehicle_rate1[]" class="inp"  /></td></tr>';
 
@@ -300,7 +301,7 @@ jQuery("body").on("keyup","#vehicle",function(){
 
 				type		: "POST",
 
-				url			: "ajaxpages/vehicle.php",
+				url	        : "ajaxpages/vehicle.php",
 
 				dataType	: "text",
 
@@ -384,7 +385,7 @@ jQuery("body").on("keyup","#vehicle",function(){
 
 				type		: "POST",
 
-				url			: "ajaxpages/vehicle.php",
+				url		: "ajaxpages/vehicle.php",
 
 				dataType	: "text",
 
@@ -470,7 +471,7 @@ jQuery("body").on("keyup","#hotel_name",function(){
 
 				type		: "POST",
 
-				url			: "ajaxpages/hotel.php",
+				url		: "ajaxpages/hotel.php",
 
 				dataType	: "text",
 
@@ -541,10 +542,6 @@ jQuery("body").on("keyup","#hotel_name",function(){
 		thisval.parent("#auto_hotel_name div").remove();
 
 	});
-
-
-
-
 
 
 

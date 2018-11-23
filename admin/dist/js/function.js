@@ -96,11 +96,14 @@ function get_nextdate(long_day,datevalue){
 		}
 		return checktrue;
 	}
-	function grand_lotal(thisval,cost,g_total){
+	function grand_lotal(thisval,cost,prof,g_total){
 	if(thisval.val() !=''){
-		var total_cost=(parseInt(cost.val())+parseInt(cost.val()*thisval.val()/100));
-		g_total.val(total_cost);
+
 		//var grand_total=parseInt($("#pp_gt").val())+parseInt($("#epsr_gt").val())+parseInt($("#cwb_gt").val())+parseInt($("#cnb_gt").val());
 		//$("#total_cost").val(grand_total);
-	}
+             var total_cost1=(parseInt(cost.val())+parseInt(cost.val()*prof.val()/100));
+                var total_cost=(total_cost1+total_cost1*parseInt(thisval.val())/100);
+		g_total.val(total_cost);
+	
+            }
 }

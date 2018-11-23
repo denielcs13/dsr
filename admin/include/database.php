@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","","dest");
+$con=mysqli_connect("localhost","root","","destinaro");
 //$con=mysqli_connect("localhost","destinarotourism","destinarotourism#234","ch_destinarotourism");
 if (mysqli_connect_errno())
   {

@@ -69,7 +69,7 @@ jQuery("body").on("keyup","#sector_code",function(){
 		if(valid_sec){
 		jQuery.ajax({
 				type		: "POST",
-				url			: "ajaxpages/report.php",
+				url	        : "ajaxpages/report.php",
 				dataType	: "text",
 				data		: $('form#form_post').serialize(),
 				success: function(msg){
@@ -79,27 +79,31 @@ jQuery("body").on("keyup","#sector_code",function(){
 		}
 	});	 
 
-jQuery("body").on("keyup","#pp_gst",function(){
+jQuery("body").on("keyup","#pp_gst,#pp_pro1",function(){
 	var thisval=$(this);
 	var cost=$("#pp_cost");
+        var prof=$("#pp_pro1");
 	var g_total=$("#pp_gt");
-	grand_lotal(thisval,cost,g_total);
+	grand_lotal(thisval,cost,prof,g_total);
 });
-jQuery("body").on("keyup","#epsr_gst",function(){
+jQuery("body").on("keyup","#epsr_gst,#pp_pro2",function(){
 	var thisval=$(this);
 	var cost=$("#epsr_cost");
+        var prof=$("#pp_pro2");
 	var g_total=$("#epsr_gt");
-	grand_lotal(thisval,cost,g_total);
+	grand_lotal(thisval,cost,prof,g_total);
 });
-jQuery("body").on("keyup","#cwb_gst",function(){
+jQuery("body").on("keyup","#cwb_gst,#pp_pro3",function(){
 	var thisval=$(this);
 	var cost=$("#cwb_cost");
+        var prof=$("#pp_pro3");
 	var g_total=$("#cwb_gt");
-	grand_lotal(thisval,cost,g_total);
+	grand_lotal(thisval,cost,prof,g_total);
 });
-jQuery("body").on("keyup","#cnb_gst",function(){
+jQuery("body").on("keyup","#cnb_gst,#pp_pro4",function(){
 	var thisval=$(this);
 	var cost=$("#cnb_cost");
+        var prof=$("#pp_pro4");
 	var g_total=$("#cnb_gt");
-	grand_lotal(thisval,cost,g_total);
+	grand_lotal(thisval,cost,prof,g_total);
 });

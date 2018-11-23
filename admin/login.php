@@ -48,16 +48,22 @@ unset($_SESSION['destinaro_callingentry']);
             <!-- /.box-header -->
             <!-- form start -->
 			<?php
+                        
 			//Login code
 	 if(isset($_POST['submit'])){
-		$uname=$_POST['username'];
-		$upwd=$_POST['password'];
+                include 'include/database.php';
+		$uname = mysqli_real_escape_string($con,$_POST['username']);
+                $myPass=mysqli_real_escape_string($con,$_POST['password']);
+		$upwd=md5(utf8_encode($myPass));
+                $query="SELECT * FROM `login` WHERE `username`='".$uname."' AND `password`='".$upwd."'";
+                $result = mysqli_query($con,$query);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	 if($uname == "" || $upwd == ""){
 		echo '<div class="alert alert-danger"> Please Enter Your Username & Password.</div>';
-	}else if(($uname == "destinaro" && $upwd == "destinaro" ) || ($uname == "accounts@destinarotourism.com" && $upwd == "accounts@123") || ($uname == "Sales@destinarotourism.com" && $upwd == "sales@123") || ($uname == "dchatterjee@destinarotourism.com" && $upwd == "dchatterjee@123")){
+	}else if(($row['username'] == "destinaro" && $row['password'] == $upwd ) || ($row['username'] == "accounts@destinarotourism.com" && $row['password'] == $upwd) || ($row['username'] == "Sales@destinarotourism.com" && $row['password'] == $upwd) || ($row['username'] == "dchatterjee@destinarotourism.com" && $row['password'] == $upwd)){
 			$_SESSION['destinaro_admin_id']=1;
 			header('location:index.php');
-	}else if($uname == "callingentry" && $upwd == "callingentry@123"){
+	}else if($row['username'] == "callingentry" && $upwd == $row['password']){
 			$_SESSION['destinaro_admin_id']=1;
 			$_SESSION['destinaro_callingentry']=1;
 			header('location:index.php');

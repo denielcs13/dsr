@@ -13,7 +13,7 @@
     </section>
 	<?php
 	// Insert Calling-Entry
-if (isset($_POST['add'])){	
+if (isset($_POST['add'])){ 	
 $query = "SELECT tag_id,mobile,email FROM calling_entry ORDER BY id DESC";
 $result = mysqli_query($con, $query);
 $row_count = mysqli_num_rows($result);
@@ -25,7 +25,7 @@ $top_id=array();
 while($view_data_val=mysqli_fetch_array($result)){
 	$max_value=explode("00000",$view_data_val["tag_id"]);
 	//print_r($max_value);
-	$top_id[]=$max_value[1];
+	//$top_id[]=$max_value[1];
 	//print_r($top_id).'<br>';
 }
 //$insert_id=(max($top_id))+1;

@@ -229,7 +229,7 @@ echo "</tr></table>";
 
 <div class="modal fade" id="myModal" role="dialog" >
 
-<div class="modal-dialog modal-lg" style="width: 1100px;">
+<div class="modal-dialog modal-lg" style="width: 90%;">
 
 <div class="modal-content" >
 

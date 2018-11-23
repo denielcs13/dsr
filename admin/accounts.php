@@ -95,13 +95,14 @@ if(!empty($filter)){
 
   }
   
-   $sql ="select * from online_dsr_rest where admin_id LIKE '%".$admin_id."%' AND file_id LIKE '".$file_number."'";
-   
+   //$sql ="select * from online_dsr_rest where admin_id LIKE '%".$admin_id."%' AND file_id LIKE '".$file_number."'";
+   $sql ="SELECT * FROM `booking_account` WHERE `admin_id` LIKE '%".$admin_id."%' AND `filenumber` LIKE '%".$file_number."%' AND `payment_status` = 1";
    $result1= mysqli_query($con,$sql);
    
   }else{
-	
-	 $sql1 ="select * from online_dsr_rest where admin_id LIKE '%".$admin_id."%' order by id desc LIMIT 10";
+         //$q="SELECT * FROM `booking_account` WHERE `admin_id` LIKE '%".$admin_id."%' AND `payment_status`='1' ";
+	  $sql1="SELECT * FROM `booking_account` WHERE `admin_id` LIKE '%".$admin_id."%' AND `payment_status`='1' ORDER BY id DESC LIMIT 10 ";
+	 //$sql1 ="select * from online_dsr_rest where admin_id LIKE '%".$admin_id."%' order by id desc LIMIT 7";
 	 $result1=mysqli_query($con,$sql1);
 }
 
@@ -133,10 +134,10 @@ if(!empty($filter)){
      //$online_dsr=$con->query("SELECT DISTINCT(dsr_status) FROM `online_dsr` where admin_id1='".$row['admin_id']."' && file_no='".$row['file_number']."' && query_id1='".$row['id']."'")->num_rows;
      //$online_dsr=$con->query("SELECT  DISTINCT(dsr_status)  FROM `float_query` where file_number='".$row['file_id']."' && admin_id='".$row['admin_id']."'")->num_rows;
 
-    echo "<tr class='danger'><td> ".$row['file_id']."</td><td> ".$row["query_id"]."</td><td> ".$row["admin_id"]."</td><td> ".$row["online_dsr_status"]."</td><!--td></td><td></td><td></td-->";
+    echo "<tr class='danger'><td> ".$row['filenumber']."</td><td> ".$row["query_id"]."</td><td> ".$row["admin_id"]."</td><td> ".$row["dsr_status"]."</td><!--td></td><td></td><td></td-->";
 
    echo '<td><form method="post">
-  <button type="button" id="update" name="update"  class="btn btn-success"  data-toggle="modal" data-target="#myModal" data-self_id="'.$row['id'].'" data-admin_id="'.$row['admin_id'].'" data-query_id="'.$row['query_id'].'"  data-file_id="'.$row['file_id'].'" data-online_status="'.$row['online_dsr_status'].'">PROFORMA INVOICE</button>
+  <button type="button" id="update" name="update"  class="btn btn-success"  data-toggle="modal" data-target="#myModal" data-self_id="'.$row['id'].'" data-admin_id="'.$row['admin_id'].'" data-query_id="'.$row['query_id'].'"  data-file_id="'.$row['filenumber'].'" data-online_status="'.$row['dsr_status'].'">PROFORMA INVOICE</button>
   </form>'. "</td>";
 
  //echo "<td><a class='btn btn-success' data-toggle='modal' data-target='#myModal' id='reply_format' data-admin_id='".$row['admin_id']."' data-self_id='".$row['file_id']."' data-qid='".$row['query_id']."'>PROFORMA INVOICE</a></td><td><a class='btn btn-info' href='online-loader.php?admin=".$row['admin_id']."&query=".$row['query_id']."&file=".$row['file_id']."'>VIEW</a></td>"; 

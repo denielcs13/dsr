@@ -37,6 +37,8 @@ $dbl_rate=$_POST["dbl_rate"];
 $no_rooms=$_POST["no_rooms"];
 
 $vehicle_cost=0;
+$v_rate=0;
+$v_rate1=0;
 
 if(!empty($_POST["veh_pax"]) or $_POST["veh_pax"]>0){
 
@@ -134,16 +136,16 @@ if(!empty($_POST["no_cnb"]) or $_POST["no_cnb"]>0){
 
 
 
-echo '<table border="1" class="table table-hover table-bordered table-striped"><tr><th>Costing</th><th>Pricing</th><th>GST ( % )</th><th>GRAND TOTAL</th></thead>
+echo '<table border="1" class="table table-hover table-bordered table-striped"><tr><th>Costing</th><th>Pricing</th><th>Profit ( % )</th><th>GST ( % )</th><th>GRAND TOTAL</th></thead>
 
 <tr><td>Cost per person ( Double )</td><td>'.$pp.'<input type="hidden" name="pp_cost" VALUE="'.$ppcost.'" id="pp_cost" /></td>
-
+<td><input type="number" name="pp_pro1" id="pp_pro1" VALUE="0"/></td>
 <td><input type="number" name="pp_gst" id="pp_gst" VALUE="0"/></td><td><input type="number" name="pp_gt" id="pp_gt" VALUE="'.($ppcost).'" readonly/></td></tr><tr><td>Cost per person ( Extra bed )</td><td>'.$exb.'<input type="hidden" name="epsr_cost" id="epsr_cost" VALUE="'.$esprppcost.'" /></td>
-
+<td><input type="number" name="pp_pro2" id="pp_pro2" VALUE="0"/></td>
 <td><input type="number" name="epsr_gst" id="epsr_gst" VALUE="0"/></td><td><input type="number" name="epsr_gt" id="epsr_gt" VALUE="'.($esprppcost).'" readonly/></tr>
 
-<tr><td>Cost per person ( CWB )</td><td> '.$cwbpp_cost.' <input type="hidden" name="cwb_cost" id="cwb_cost" VALUE="'.$cwbpp_cost.'" /></td><td><input type="number" name="cwb_gst"  id="cwb_gst"  VALUE="0"/></td><td><input type="number" name="cwb_gt"  id="cwb_gt" VALUE="'.$cwbpp_cost.'" readonly/></tr><tr><td>Cost per person ( CNB )</td><td>'.$cnbpp_cost.'<input type="hidden" name="cnb_cost" id="cnb_cost" VALUE="'.$cnbpp_cost.'"  /></td>
-
+<tr><td>Cost per person ( CWB )</td><td> '.$cwbpp_cost.' <input type="hidden" name="cwb_cost" id="cwb_cost" VALUE="'.$cwbpp_cost.'" /></td><td><input type="number" name="pp_pro3" id="pp_pro3" VALUE="0"/></td><td><input type="number" name="cwb_gst"  id="cwb_gst"  VALUE="0"/></td><td><input type="number" name="cwb_gt"  id="cwb_gt" VALUE="'.$cwbpp_cost.'" readonly/></tr><tr><td>Cost per person ( CNB )</td><td>'.$cnbpp_cost.'<input type="hidden" name="cnb_cost" id="cnb_cost" VALUE="'.$cnbpp_cost.'"  /></td>
+<td><input type="number" name="pp_pro4" id="pp_pro4" VALUE="0"/></td>
 <td><input type="number" name="cnb_gst" id="cnb_gst" VALUE="0"/></td><td><input type="number" name="cnb_gt" id="cnb_gt" VALUE="'.$cnbpp_cost.'" readonly/></tr>
 
 <input type="hidden" name="total_cost" id="total_cost" VALUE=""  readonly/>

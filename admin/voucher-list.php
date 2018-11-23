@@ -242,7 +242,7 @@ include 'include/footer.php';
 
 $(document).ready(function(){
 
-	var a_url='ajaxpages/vendor-entry.php';
+	var a_url='ajaxpages/voucher-entry.php';
 
 	var a_response=$(".modal-content");
 

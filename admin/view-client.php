@@ -8,9 +8,12 @@ $tag_id=$_GET["tag_id"];
        Client Details
         <small>Control panel</small>
       </h1>
+        <a href="new-lead.php" style="margin-left: 892px;
+                   margin-top: -36px;" class="btn btn-warning">Back</a>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-gallery"></i> Home</a></li>
         <li class="active">Clients Query</li>
+        
       </ol>
  </section>
  <section>

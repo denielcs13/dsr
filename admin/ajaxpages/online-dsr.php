@@ -51,7 +51,7 @@ if(isset($_POST["view_stucture_rf"])){
 
 		$booking_account=$con->query("SELECT payment_status FROM `booking_account` where admin_id='".$admin_id."' && query_id='".$rf_id."' && filenumber='".$file_id."' && dsr_status='".$get_data["dsr_status"]."' order by dsr_status desc")->fetch_assoc();
 
-		echo '<tr><td>Revised '.$get_data["dsr_status"].'</td><td><a href="#" id="send_mail" class="btn btn-success " data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'">Send Mail</a></td><td><a href="#" id="view_dsr" class="btn btn-warning" data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'" >View </a></td>';
+		echo '<tr><td>Revised '.$get_data["dsr_status"].'</td><td><a href="#" id="send_mail" class="btn btn-success " data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'">Send Mail</a></td><td><a href="#" id="view_dsr" class="btn btn-warning" style="background-color: #444cdb;border-color: #444cdb;" data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'" >View </a></td>';
 
 		if(!empty($booking_account)){
 
@@ -63,7 +63,7 @@ if(isset($_POST["view_stucture_rf"])){
 
 		}else{
 
-		echo '<td><a href="#" id="dsr_action" class="btn btn-success"  data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'" data-action="approved">Approved</a></td>
+		echo '<td><a href="#" id="dsr_action" class="btn btn-success" style="background-color: #f39c12;border-color: #f39c12;"  data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'" data-action="approved">Approve</a></td>
 
 		<td><a href="#" id="dsr_action" class="btn btn-danger"  data-revised_status="'.$get_data["dsr_status"].'" data-file_no="'.$file_id.'" data-qid="'.$rf_id.'" data-admin_id="'.$admin_id.'" data-action="reject">Rejected</a></td>';
 
@@ -71,12 +71,12 @@ if(isset($_POST["view_stucture_rf"])){
 		echo '</tr>';
 		$result_dsr=$con->query("select day,date,sector_code_id,sector_code,sector_code_name,itinerary,itinerary_desc,hotel_name,meal_plan,no_rooms,dbl_rate,ext_bed_rate,cwb_rate,cnb_rate,vehicle1,vehicle1_no,vehicle1_rate,vehicle2,vehicle2_no,vehicle2_rate from online_dsr where   file_no='".$file_id."' && admin_id1='".$admin_id."' && query_id1='".$rf_id."' && dsr_status='".$get_data["dsr_status"]."' order by day asc");
 
-		echo '<tr id="show_data_all" style="display:none;"><td colspan="3" >';
+		echo '<tr id="show_data_all" style="display:none;"><td colspan="5" >';
 
 		if($result_dsr->num_rows>0){
 		echo '<table border="1" class="table table-hover table-bordered table-striped" id="submit_table"><thead>
 
- <tr><th >Day</th><th >Date</th><th >Sector Code</th><th >Hotel Name</th><th >MealPlan</th><th >Room</th><th >Dbl Rate</th><th >Ext. Bed Rate</th><th >CWB</th><th >CNB</th><th colspan="3" style="text-align: center;">Option 1<table border="1" class="table table-hover table-bordered table-striped">  <thead><tr ><th>vehicle</th><th>No. of vehicle</th><th>Rate</th></tr> </thead></table></th><th colspan="3" style="text-align: center;">Option 2 <table border="1" class="table table-hover table-bordered table-striped">  <thead><tr ><th>vehicle</th><th>No. of vehicle</th><th>Rate</th></tr> </thead></table></th></tr>
+ <tr><th >Day</th><th >Date</th><th>Sector Code</th><th >Hotel Name</th><th >MealPlan</th><th >Room</th><th >Dbl Rate</th><th >Ext. Bed Rate</th><th >CWB</th><th >CNB</th><th colspan="3" style="text-align: center;">Option 1<table border="1" class="table table-hover table-bordered table-striped">  <thead><tr ><th>vehicle</th><th>No. of vehicle</th><th>Rate</th></tr> </thead></table></th><th colspan="3" style="text-align: center;">Option 2 <table border="1" class="table table-hover table-bordered table-striped">  <thead><tr ><th>vehicle</th><th>No. of vehicle</th><th>Rate</th></tr> </thead></table></th></tr>
 
  </thead>';
 
